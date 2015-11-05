@@ -24,6 +24,9 @@ function d7_theme_setup() {
 	add_theme_support('automatic-feed-links'); // http://codex.wordpress.org/Function_Reference/add_theme_support#Feed_Links
 	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption')); 	// http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
 
+	// Let WordPress manage document title
+	add_theme_support( 'title-tag' );
+
 }
 
 /**
