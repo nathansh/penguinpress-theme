@@ -22,7 +22,7 @@
 	} else {
 
 		// Otherwise, use the document title
-		$meta['title'] = trim(d7_get_document_title());
+		$meta['title'] = trim(wp_title('', false));
 
 	}
 
