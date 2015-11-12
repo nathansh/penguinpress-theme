@@ -3,14 +3,14 @@
 	/**
 	 * Print classes depending on images that might be in a post
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param array $classes The classes array
 	 * @return array The updated classes array
 	 *
 	 */
-	function d7_post_image_classes($classes) {
+	function pp_post_image_classes($classes) {
 
 		// Has feature image
 		if ( has_post_thumbnail() ) {

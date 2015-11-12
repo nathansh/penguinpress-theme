@@ -1,15 +1,15 @@
 <?php
 
-add_action('widgets_init', 'd7_register_sidebars');
+add_action('widgets_init', 'pp_register_sidebars');
 
 /**
  * Register WordPress Sitebars
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function d7_register_sidebars() {
+function pp_register_sidebars() {
 	register_sidebar(
 		array(
 			'id' => 'primary',
@@ -28,11 +28,11 @@ function d7_register_sidebars() {
 /**
  * Add classes for the active sidebars
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme
  *
  */
-function d7_sidebar_classes() {
+function pp_sidebar_classes() {
 
 	$sidebars = $GLOBALS['wp_registered_sidebars'];
 	$class = false;

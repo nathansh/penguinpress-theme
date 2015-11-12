@@ -19,14 +19,14 @@
 	 *	));
 	 * </code>
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme_filters+hooks
 	 *
 	 * @internal only called by `getarchives_where` filter
 	 * @link http://codex.wordpress.org/Function_Reference/wp_get_archives Docs on wp_get_archives()
 	 *
 	 */
-	function d7_custom_post_type_archive_where($where,$args){
+	function pp_custom_post_type_archive_where($where,$args){
 
 		global $is_cpt_archive;
 
@@ -61,7 +61,7 @@
 
 	}
 
-	add_filter('getarchives_where', 'd7_custom_post_type_archive_where', 10 , 2);
+	add_filter('getarchives_where', 'pp_custom_post_type_archive_where', 10 , 2);
 
 
 	/**

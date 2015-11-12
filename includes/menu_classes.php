@@ -3,13 +3,13 @@
 	/**
 	 *	Add link name to css class of menu items
 	 *
- 	 * @package d7
+ 	 * @package pp
 	 * @subpackage boilerplate-theme_filters+hooks
 	 *
 	 * @internal called by `nav_menu_css_class` filter
 	 *
 	 */
-	function d7_nav_class($classes, $item, $args) {
+	function pp_nav_class($classes, $item, $args) {
 
 		$classes[] = strtolower(str_replace("--", "", preg_replace("([^a-zA-Z])", "-", $item->title)));
 
@@ -20,4 +20,4 @@
 
 	}
 
-	add_filter('nav_menu_css_class', 'd7_nav_class', 10, 3);
+	add_filter('nav_menu_css_class', 'pp_nav_class', 10, 3);

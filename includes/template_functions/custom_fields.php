@@ -3,14 +3,14 @@
 	/**
 	 * Gets all of the custom text fields
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param int $id 		Specific ID of post to look up fields of
 	 * @return array 		Array of custom fields
 	 *
 	 */
-	function d7_get_custom_fields($id = false) {
+	function pp_get_custom_fields($id = false) {
 
 		// Get the post ID
 		if ( !$id ) {

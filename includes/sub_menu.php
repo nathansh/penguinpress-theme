@@ -33,13 +33,13 @@
  *	?>
  * </code>
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @link https://codex.wordpress.org/Function_Reference/wp_nav_menu
  * @link https://developer.wordpress.org/reference/hooks/wp_nav_menu_objects/
  * @internal Only used in a `wp_nav_menu_objects` hook
  */
-function d7_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
+function pp_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 
 	if ( isset($args->sub_menu) && $args->sub_menu === true ) {
 
@@ -180,4 +180,4 @@ function d7_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 }
 
 // add hook
-add_filter( 'wp_nav_menu_objects', 'd7_wp_nav_menu_objects_sub_menu', 10, 2 );
+add_filter( 'wp_nav_menu_objects', 'pp_wp_nav_menu_objects_sub_menu', 10, 2 );

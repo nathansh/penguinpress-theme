@@ -5,7 +5,7 @@
  * should the CDN fail. The code is adapted from https://gist.github.com/wpsmith/4083811.
  * Then we load basic styles.
  */
-add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
+add_action( 'wp_enqueue_scripts', 'pp_enqueue_jquery' );
 
 /**
  * Enqueue jQuery from Google CDN with fallback to local WordPress
@@ -13,7 +13,7 @@ add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
  * should the CDN fail. The code is adapted from https://gist.github.com/wpsmith/4083811.
  * Then we load basic styles.
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal only called by `wp_enqueue_scripts` action
  *
@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
  * @uses wp_register_script()   Registers javascripts for use with wp_enqueue_script() later.
  * @uses wp_enqueue_script()    Enqueues javascript.
  */
-function d7_enqueue_jquery() {
+function pp_enqueue_jquery() {
 
 	$script_location = 'js/main.js';
 
@@ -104,7 +104,7 @@ function d7_enqueue_jquery() {
 		'currentTheme' => get_current_theme(),
 		'url' => get_bloginfo('url'),
 	);
-	wp_localize_script('basic', 'D7WP', $wp_object);
+	wp_localize_script('basic', 'ppWP', $wp_object);
 
 
 	// For comment reply form

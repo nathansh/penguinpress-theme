@@ -9,7 +9,7 @@
 	</header>
 
 	<div class="post__content post__content--summary wysiwyg">
-		<?php d7_custom_excerpt(45, "More Info"); ?>
+		<?php pp_custom_excerpt(45, "More Info"); ?>
 	</div><!-- .entry-content -->
 
 	<?php edit_post_link('Edit'); ?>

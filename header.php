@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
 <head>
 
-	<title><?php d7_document_title(); ?></title>
+	<title><?php pp_document_title(); ?></title>
 
 	<?php include "partials/share_meta.php"; ?>
 

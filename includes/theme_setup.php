@@ -1,18 +1,18 @@
 <?php
 
-add_action('after_setup_theme', 'd7_theme_setup');
-add_filter('stylesheet_uri', 'd7_stylesheet_uri', 10, 2);
+add_action('after_setup_theme', 'pp_theme_setup');
+add_filter('stylesheet_uri', 'pp_stylesheet_uri', 10, 2);
 
 /**
  * Basic theme setup stuff like theme support
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal only called as `after_setup_theme` action
  * @link https://codex.wordpress.org/Function_Reference/add_theme_support
  *
  */
-function d7_theme_setup() {
+function pp_theme_setup() {
 
 	global $content_width;
 
@@ -29,30 +29,30 @@ function d7_theme_setup() {
 /**
  * Change the stylesheet url to our compiled stylesheet from Sassyplayte
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal only called as `stylesheet_uri` filter
  * @link https://bitbucket.org/domain7/sassyplate Sassyplate SASS boilerplate repo
  *
  */
-function d7_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
+function pp_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
 	return $stylesheet_dir_uri . '/stylesheets/css/screen.css';
 }
 
 /**
  * Use wp_enqueue to add theme stylesheet to wp_head()
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme\filters+hooks
- * @uses d7_stylesheet_uri()
+ * @uses pp_stylesheet_uri()
  * @link http://codex.wordpress.org/Function_Reference/wp_enqueue_style
  * @internal the '15' in the add_action forces the file to load after the other styles in wp_head().
  *
  */
-function d7_enqueue_styles() {
+function pp_enqueue_styles() {
     wp_enqueue_style('theme-stylesheet',  get_bloginfo( 'stylesheet_url' ) );
 }
-add_action( 'wp_enqueue_scripts', 'd7_enqueue_styles', 15 );
+add_action( 'wp_enqueue_scripts', 'pp_enqueue_styles', 15 );
 
 // Clean up <head> and improve security.
 remove_action('wp_head', 'rsd_link');

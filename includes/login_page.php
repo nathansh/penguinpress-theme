@@ -3,12 +3,12 @@
 /**
  * Customize the login page to match site branding, link to homepage instead of wordpress.org
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
- * @internal called by add_filter( 'login_head', 'd7_custom_login_logo' );
+ * @internal called by add_filter( 'login_head', 'pp_custom_login_logo' );
  *
  */
-function d7_custom_login_logo() {
+function pp_custom_login_logo() {
 
 	$logo = false;
 
@@ -52,44 +52,44 @@ function d7_custom_login_logo() {
 	<?php endif;
 }
 
-add_filter( 'login_head', 'd7_custom_login_logo' );
+add_filter( 'login_head', 'pp_custom_login_logo' );
 
 
 /**
  * Change the url when clicking login logo
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal called by login_headerurl filter
  *
  */
-function d7_custom_login_url(){
+function pp_custom_login_url(){
 	return get_bloginfo('url');
 }
 
-add_filter('login_headerurl', 'd7_custom_login_url');
+add_filter('login_headerurl', 'pp_custom_login_url');
 
 
 /**
  * Customize the login title
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal called by login_headertitle filter
  *
  */
-function d7_custom_login_title() {
+function pp_custom_login_title() {
 	return get_bloginfo('name');
 }
 
-add_filter('login_headertitle', 'd7_custom_login_title');
+add_filter('login_headertitle', 'pp_custom_login_title');
 
 
 // Uncomment the following to use custom CSS & JS on the login page
 /*
-function d7_custom_login_stylesheet() {
+function pp_custom_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/stylesheets/css/login-page.css' );
     wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/js/src/login-page.js' );
 }
-add_action( 'login_enqueue_scripts', 'd7_custom_login_stylesheet' );
+add_action( 'login_enqueue_scripts', 'pp_custom_login_stylesheet' );
 */

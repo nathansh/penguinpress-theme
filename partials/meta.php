@@ -7,7 +7,7 @@
 	$tags = wp_get_post_tags($post->ID);
 
 	// Custom fields
-	$custom_fields = d7_get_custom_fields($post->ID);
+	$custom_fields = pp_get_custom_fields($post->ID);
 
 ?>
 

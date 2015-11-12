@@ -5,13 +5,13 @@
 	 *
 	 * ### Usage:
 	 * ```php
-	 * $image = d7_get_acf_image($image, $size, $classes);
+	 * $image = pp_get_acf_image($image, $size, $classes);
 	 * if ( $image ) {
 	 *	echo $image;
 	 * }
 	 * ```
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param array|string  $image 			Image array as returned by ACF, or field name as a string
@@ -21,7 +21,7 @@
 	 * @return string 						HTML output
 	 *
 	 */
-	function d7_get_acf_image($image, $size = 'thumbnail', $classes = '') {
+	function pp_get_acf_image($image, $size = 'thumbnail', $classes = '') {
 
 		// Bail early if there's no image
 		if ( !is_array($image) ) {
@@ -61,26 +61,26 @@
 	}
 
 	/**
-	 * Echos the output from d7_get_acf_image, which returns html for an ACF image
+	 * Echos the output from pp_get_acf_image, which returns html for an ACF image
 	 *
 	 * ### Usage:
 	 * ```php
-	 * d7_acf_image(get_field('photo'), 'large', 'fancy_class');
+	 * pp_acf_image(get_field('photo'), 'large', 'fancy_class');
 	 * ```
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param array  $image 				Image array as returned by ACF
 	 * @param string $size 					Image size
 	 * @param string $classes 				Classes to be added
-	 * @uses d7_get_acf_image()
+	 * @uses pp_get_acf_image()
 	 * @link http://www.advancedcustomfields.com/resources/image/
 	 *
 	 */
-	function d7_acf_image($image, $size = 'thumbnail', $classes = '') {
+	function pp_acf_image($image, $size = 'thumbnail', $classes = '') {
 
-		$image = d7_get_acf_image($image, $size, $classes);
+		$image = pp_get_acf_image($image, $size, $classes);
 		if ( $image ) {
 			echo $image;
 		}
@@ -95,20 +95,20 @@
 	 * ### Usage
 	 * For the full image of the current post:
 	 * <code>
-	 * $image = d7_get_post_thumbnail_url();
+	 * $image = pp_get_post_thumbnail_url();
 	 * </code>
 	 *
 	 * For the 'thumbnail' size of another post:
 	 * <code>
-	 * $image = d7_get_post_thumbnail_url('thumbnail', 13);
+	 * $image = pp_get_post_thumbnail_url('thumbnail', 13);
 	 * </code>
 	 *
 	 * For the full image of another post:
 	 * <code>
-	 * $image = d7_get_post_thumbnail_url('full', 13);
+	 * $image = pp_get_post_thumbnail_url('full', 13);
 	 * </code>
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param string $size 		The image size to return. Use 'full' for full image
@@ -116,7 +116,7 @@
 	 *
 	 * @return string|bool 		Image URL or false
 	 */
-	function d7_get_post_thumbnail_url($size='', $id = false) {
+	function pp_get_post_thumbnail_url($size='', $id = false) {
 
 		if ( !$id ) {
 			$id = get_the_ID();

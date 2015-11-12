@@ -1,10 +1,10 @@
 <?php
 
-add_filter('body_class','d7_body_classes');
+add_filter('body_class','pp_body_classes');
 
 /**
  * Expands the body classes added by WordPress. <br />
- * Only called by `add_filter('body_class','d7_body_classes');`
+ * Only called by `add_filter('body_class','pp_body_classes');`
  *
  * ### Added classes
  * * `.post_type-{post_type}`
@@ -14,13 +14,13 @@ add_filter('body_class','d7_body_classes');
  * * `.taxonomy_id-{tax_id}`
  * * `.taxonomy_term_id-{tax_term_id}`
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  *
  * @internal Called by `body_class` filter
  *
  */
-function d7_body_classes($classes, $class='') {
+function pp_body_classes($classes, $class='') {
 	global $wp_query;
 
 	if ( isset($wp_query->queried_object) ) {
@@ -58,8 +58,8 @@ function d7_body_classes($classes, $class='') {
 	} // if isset
 
 	// Has post thumbnail or other acf images, add classes for those
-	if ( !d7_is_listing() ) {
-		$classes = d7_post_image_classes($classes);
+	if ( !pp_is_listing() ) {
+		$classes = pp_post_image_classes($classes);
 	}
 
 	// Has comments or not
@@ -75,8 +75,8 @@ function d7_body_classes($classes, $class='') {
 	}
 
 	// Classes for sidebars
-	if ( function_exists('d7_sidebar_classes') ) {
-		$classes[] = d7_sidebar_classes();
+	if ( function_exists('pp_sidebar_classes') ) {
+		$classes[] = pp_sidebar_classes();
 	}
 
 	return $classes;// return the $classes array

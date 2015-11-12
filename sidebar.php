@@ -3,7 +3,7 @@
 	<?php
 		/**
 		 * Sub menu using wp_nav_menu with sub_menu added
-		 * @link http://domain7.github.io/wp-theme_boilerplate/docs/function-d7_wp_nav_menu_objects_sub_menu.html
+		 * @link http://nathansh.github.io/penguinpress-theme/docs/function-pp_wp_nav_menu_objects_sub_menu.html
 		 * @link https://codex.wordpress.org/Function_Reference/wp_nav_menu
 		 */
 		wp_nav_menu( array(
