@@ -1,6 +1,25 @@
 <!doctype html>
-<!--[if IE 8 ]>    <html class="ie ie8 lt-ie6 lt-ie7 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 lt-ie6 lt-ie7 lt-ie8 no-js" lang="en"> <![endif]-->
+
+<!--
+
+  _____                       _       _____
+ |  __ \                     (_)     |  __ \
+ | |__) |__ _ __   __ _ _   _ _ _ __ | |__) | __ ___  ___ ___
+ |  ___/ _ \ '_ \ / _` | | | | | '_ \|  ___/ '__/ _ \/ __/ __|
+ | |  |  __/ | | | (_| | |_| | | | | | |   | | |  __/\__ \__ \
+ |_|   \___|_| |_|\__, |\__,_|_|_| |_|_|   |_|  \___||___/___/
+                   __/ |
+                  |___/
+
+🎉I have a feeling, that this site is gonna be a good site 🎉
+
+V important, create your fun site name at http://patorjk.com/software/taag
+
+-->
+
+<!--[if IE 8]>         <html class="no-js ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+
 <!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
 <head>
 
