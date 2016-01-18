@@ -17,8 +17,7 @@ V important, create your fun site name at http://patorjk.com/software/taag
 
 -->
 
-<!--[if IE 8]>         <html class="no-js ie8 lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js ie9"> <![endif]-->
 
 <!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
 <head>
