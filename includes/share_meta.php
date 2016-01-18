@@ -7,6 +7,8 @@ add_action('wp_head', 'pp_share_meta');
  */
 function pp_share_meta() {
 
+	global $post;
+
 
 	/**
 	 * ===

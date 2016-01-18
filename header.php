@@ -22,8 +22,6 @@ V important, create your fun site name at http://patorjk.com/software/taag
 <!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
 <head>
 
-	<title><?php pp_document_title(); ?></title>
-
 	<meta name="description" content="<?php bloginfo('description') ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
@@ -36,7 +34,6 @@ V important, create your fun site name at http://patorjk.com/software/taag
     <![endif]-->
 
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico?ver=2">
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo get_bloginfo('rss2_url'); ?>" />
 
 	<?php wp_head(); ?>
 

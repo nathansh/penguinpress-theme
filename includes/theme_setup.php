@@ -21,8 +21,11 @@ function pp_theme_setup() {
 	if ( !isset( $content_width ) )
 		$content_width = 1000;
 
-	add_theme_support('automatic-feed-links'); // http://codex.wordpress.org/Function_Reference/add_theme_support#Feed_Links
+	// Let WordPress manage document title
+	add_theme_support( 'title-tag' );
+
 	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption')); 	// http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
+
 
 }
 
