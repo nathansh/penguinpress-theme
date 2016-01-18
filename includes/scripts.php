@@ -101,7 +101,7 @@ function pp_enqueue_jquery() {
 		'stylesheetDirectory' => get_bloginfo('stylesheet_directory'),
 		'siteName' => get_bloginfo('name'),
 		'description' => get_bloginfo('description'),
-		'currentTheme' => get_current_theme(),
+		'currentTheme' => wp_get_theme(),
 		'url' => get_bloginfo('url'),
 	);
 	wp_localize_script('basic', 'ppWP', $wp_object);
