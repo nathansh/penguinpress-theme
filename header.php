@@ -24,8 +24,6 @@ V important, create your fun site name at http://patorjk.com/software/taag
 
 	<title><?php pp_document_title(); ?></title>
 
-	<?php include "partials/share_meta.php"; ?>
-
 	<meta name="description" content="<?php bloginfo('description') ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />

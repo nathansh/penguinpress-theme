@@ -1,5 +1,13 @@
 <?php
 
+add_action('wp_head', 'pp_share_meta');
+
+/**
+ * Print open graph and twitter card meta tags
+ */
+function pp_share_meta() {
+
+
 	/**
 	 * ===
 	 * This first section creates our meta tag values
@@ -122,3 +130,5 @@
 			echo '<meta name="twitter:' . $tag . '" content="' . $value . '" />' . "\n";
 		}
 	}
+
+}
