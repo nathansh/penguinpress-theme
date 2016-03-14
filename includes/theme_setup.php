@@ -35,7 +35,7 @@ function pp_theme_setup() {
  * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal only called as `stylesheet_uri` filter
- * @link https://bitbucket.org/domain7/sassyplate Sassyplate SASS boilerplate repo
+ * @link https://github.com/nathansh/sassyplate Sassyplate SASS boilerplate repo
  *
  */
 function pp_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
