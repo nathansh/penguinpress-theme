@@ -24,43 +24,47 @@
 
 			$fields = get_fields();
 
-			foreach ( $fields as $field => $field_content ) {
+			if ( $fields ) {
 
-				// Only work with arrays
-				if ( is_array($field_content) ) {
+				foreach ( $fields as $field => $field_content ) {
 
-					// For normal ACF images
-					if ( isset($field_content['sizes']) && count($field_content['sizes']) ) {
-						if ( !in_array('has-image', $classes) ) {
-							$classes[] = 'has-image';
-						}
-						$classes[] = 'has-image--' . $field;
-					} elseif (is_array($field_content)) {
+					// Only work with arrays
+					if ( is_array($field_content) ) {
 
-						// Loop through the nested fields
-						foreach ( $field_content as $nested_field => $nested_field_content ) {
-
-							// Each repeater field
-							if ( is_array($nested_field_content) ) {
-								foreach ($nested_field_content as $repeater_field => $repeater_field_content) {
-									// If the nested field is an image, add that class too
-									if ( is_array($repeater_field_content) && isset($repeater_field_content['sizes']) && count($repeater_field_content['sizes']) ) {
-										if ( !in_array('has-iamge', $classes) ) {
-											$classes[] = 'has-image';
-										} // !in_array
-										if ( !in_array($repeater_field, $classes) ) {
-											$classes[] = 'has-image--' . $repeater_field;
-										} // !in_array
-									} // if it's an image field
-								} // each repeater field
+						// For normal ACF images
+						if ( isset($field_content['sizes']) && count($field_content['sizes']) ) {
+							if ( !in_array('has-image', $classes) ) {
+								$classes[] = 'has-image';
 							}
-						} // foreach nested fields
+							$classes[] = 'has-image--' . $field;
+						} elseif (is_array($field_content)) {
 
-					} // elseif
+							// Loop through the nested fields
+							foreach ( $field_content as $nested_field => $nested_field_content ) {
 
-				} // field content is array
+								// Each repeater field
+								if ( is_array($nested_field_content) ) {
+									foreach ($nested_field_content as $repeater_field => $repeater_field_content) {
+										// If the nested field is an image, add that class too
+										if ( is_array($repeater_field_content) && isset($repeater_field_content['sizes']) && count($repeater_field_content['sizes']) ) {
+											if ( !in_array('has-iamge', $classes) ) {
+												$classes[] = 'has-image';
+											} // !in_array
+											if ( !in_array($repeater_field, $classes) ) {
+												$classes[] = 'has-image--' . $repeater_field;
+											} // !in_array
+										} // if it's an image field
+									} // each repeater field
+								}
+							} // foreach nested fields
 
-			} // foreach
+						} // elseif
+
+					} // field content is array
+
+				} // foreach
+
+			} // if $fields
 
 		} // if get_fields
 
