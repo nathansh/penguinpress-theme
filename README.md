@@ -17,6 +17,12 @@ A few notes/philosophy about this:
 ## Function reference
 Please refer to this project's function reference documentation: http://nathansh.github.io/penguinpress-theme
 
+## CSS and JavaScript
+No CSS or JavaScript is included in this boilerplate. For the sake of maintenance and separation of concerns, CSS and JavaScript boilerplates are maintained in their own repos:
+
+* [SCSS boilerplate](github.com/nathansh/sassyplate)
+* [Grunt/JavaScript boilerplate](https://github.com/nathansh/gruntyplate)
+
 ## Companion site plugin repo
 
 Since post types and core site functionality shouldn't be defined in the theme but rather a plugin, there is a plugin boilerplate repo as a companion to this one: https://github.com/nathansh/penguinpress-plugin.
@@ -31,7 +37,7 @@ For more info:
 * [Open Graph](http://ogp.me/)
 * [Twitter Cards](https://dev.twitter.com/cards/overview)
 
-### wp_get_archives
+### `wp_get_archives`
 
 We've added the ability to pass a post type slug, or array of post type slugs, into `wp_get_archives()`. The archive page
 linked to will also be filtered by that post type.
@@ -49,16 +55,27 @@ or
 	));
 
 
-## Login screen
+### `wp_nav_menu` / `sub_menu`
+A function is added to `wp_nav_menu_objects` providing a `sub_menu` argument to `wp_nav_menu`. Setting this to `true` creates a contextual sub navigation. For example:
 
-`includes/login_page.php` has been added to customize the login. A logo is assumed in `images/sprites/common-1x/logo.png` since this is our SASS structure.
-This can be customized, and a template for adding more custom login css/js in also in `login_page.php`.
+	wp_nav_menu( array(
+		'theme_location' => 'primary',
+		'container' => 'nav',
+		'container_class' => 'menu subnav',
+		'depth' => 2,
+		'sub_menu' => true
+		)
+	);
 
-## Extra - Install plugins like a boss with WP CLI
 
-If you're like me, you probably have some handy plugins you use on every project. If you have WP CLI installed, you can install those plugins quickly through the command line:
+### Login screen
 
-```
-wp plugin install advanced-custom-fields --activate
-wp plugin install regenerate-thumbnails --activate
-```
+`includes/login_page.php` has been added to customize the login. For following locations will be checked for a logo to use on the login screen, in this order:
+
+	$possible_logos = array(
+		'/images/logo-login.png',
+		'/images/sprites/common-1x/logo.png',
+		'/images/sprites/common-compatibility/logo.png',
+		'/images/logo.png',
+		'/logo.png'
+	);

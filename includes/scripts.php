@@ -36,7 +36,8 @@ add_action( 'wp_enqueue_scripts', 'pp_enqueue_jquery' );
  */
 function pp_enqueue_jquery() {
 
-	$script_location = 'js/main.js';
+	$script_location = 'js/dist/application.js';
+	$script_head_location = 'js/dist/application-head.js';
 
 	// Setup Google URI, default
 	$protocol = ( isset( $_SERVER['HTTPS'] ) && 'on' == $_SERVER['HTTPS'] ) ? 'https' : 'http';
@@ -47,7 +48,7 @@ function pp_enqueue_jquery() {
 	//$url      = $protocol . '://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js';
 
 	// Setup WordPress URI
-	$wpurl =  get_bloginfo('template_directory') . '/js/jquery-1.11.1.min.js';
+	$wpurl =  get_bloginfo('template_directory') . '/js/src/vendor/jquery-2.0.0.min.js';
 
 	// Setup version
 	$ver = null;
@@ -93,6 +94,10 @@ function pp_enqueue_jquery() {
 
 	// Now load basic site js
 	wp_enqueue_script('basic', get_bloginfo('template_directory') . '/' . $script_location , array('jquery'), '1.0');
+
+	// Now load basic site js
+	wp_enqueue_script( 'laguardia-head', get_bloginfo('template_directory') . '/' . $script_head_location , array('jquery'), '1.0' );
+	wp_enqueue_script( 'laguardia', get_bloginfo('template_directory') . '/' . $script_location , array('jquery'), '1.0', true );
 
 	// Add some site information to a WP js object
 	$wp_object = array(

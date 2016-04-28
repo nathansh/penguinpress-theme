@@ -13,7 +13,6 @@
 
 		// Lowercase title
 		$title = strtolower(str_replace("--", "", preg_replace("([^a-zA-Z])", "-", $item->title)));
-
 		// Crazy town, start from scratch
 		$old_classes = $classes;
 		$classes = [];
@@ -43,11 +42,15 @@
 			$classes[] = 'has-children';
 		}
 
+		// Get block name
+		$block = explode( ' ', $args->container_class );
+		$block = end( $block );
+
 		// Add BEM class
-		$classes[] = $args->container_class . '__item';
+		$classes[] = $block . '__item';
 
 		// Add BEM modifier for items
-		$classes[] = $args->container_class . '__item--' . $title;
+		$classes[] = $block . '__item--' . $title;
 
 		return $classes;
 
