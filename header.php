@@ -1,12 +1,26 @@
 <!doctype html>
-<!--[if IE 8 ]>    <html class="ie ie8 lt-ie6 lt-ie7 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 lt-ie6 lt-ie7 lt-ie8 no-js" lang="en"> <![endif]-->
+
+<!--
+
+  _____                       _       _____
+ |  __ \                     (_)     |  __ \
+ | |__) |__ _ __   __ _ _   _ _ _ __ | |__) | __ ___  ___ ___
+ |  ___/ _ \ '_ \ / _` | | | | | '_ \|  ___/ '__/ _ \/ __/ __|
+ | |  |  __/ | | | (_| | |_| | | | | | |   | | |  __/\__ \__ \
+ |_|   \___|_| |_|\__, |\__,_|_|_| |_|_|   |_|  \___||___/___/
+                   __/ |
+                  |___/
+
+🎉I have a feeling, that this site is gonna be a good site 🎉
+
+V important, create your fun site name at http://patorjk.com/software/taag
+
+-->
+
+<!--[if IE 9]> <html class="no-js ie9"> <![endif]-->
+
 <!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
 <head>
-
-	<title><?php d7_document_title(); ?></title>
-
-	<?php include "partials/share_meta.php"; ?>
 
 	<meta name="description" content="<?php bloginfo('description') ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +33,15 @@
         <script>window.attachEvent&&!window.addEventListener&&window.attachEvent("onload",function(){var a=document.documentElement,b=a.className;a.className=b+" ie-force-pseudo-refresh",setTimeout(function(){a.className=b},10)});</script>
     <![endif]-->
 
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico?ver=2">
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo get_bloginfo('rss2_url'); ?>" />
 
 	<?php wp_head(); ?>
 
 </head>
 <body <?php body_class(); ?>>
 
-	<header id="masthead">
-		<h1 class="site_name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+	<header class="masthead">
+		<h1 class="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
 		<?php
 
 			/**
@@ -37,8 +49,10 @@
 			 */
 			wp_nav_menu( array(
 				'container' => 'nav',
-				'container_id' => 'primary_nav',
+				'container_class' => 'primary-nav',
 				'theme_location' => 'primary',
+				'menu_class' => 'primary-nav__items',
+				'items_wrap' => '<h2 class="u-screen-reader">Main menu</h2><ul class="%2$s">%3$s</ul>',
 				'depth' => 1
 				)
 			);

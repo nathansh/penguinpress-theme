@@ -5,13 +5,13 @@
  * can open with fresco.js. The link to attachment page is not respected,
  * and size/column classes are added.
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  *
  * @internal only called by `post_gallery` filter
  *
  */
-function d7_gallery_shortcode( $output = '', $atts, $content = false, $tag = false ) {
+function pp_gallery_shortcode( $output = '', $atts, $content = false, $tag = false ) {
 
 	// Get thumbnail size
 	$size = isset($atts['size']) ? $atts['size'] : 'thumbnail';
@@ -54,20 +54,20 @@ function d7_gallery_shortcode( $output = '', $atts, $content = false, $tag = fal
 	return $output;
 
 }
-add_filter( 'post_gallery', 'd7_gallery_shortcode', 10, 4 );
+add_filter( 'post_gallery', 'pp_gallery_shortcode', 10, 4 );
 
 
 /**
  * Do some regex to add a fresco-image class to linked images, and open them with fresco.
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  *
  * @internal only called by `the_content` filter
  * @todo figure out how to write regex to match the link around the image and add a fresco class to that
  *
  */
-function d7_add_fresco_class($content) {
+function pp_add_fresco_class($content) {
 
    global $post;
 
@@ -79,18 +79,18 @@ function d7_add_fresco_class($content) {
    return $content;
 
 }
-add_filter('the_content', 'd7_add_fresco_class');
+add_filter('the_content', 'pp_add_fresco_class');
 
 
 /**
  * Load fresco.js and fresco.css
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  *
  * @internal only called by `wp_enqueue_scripts` action
  */
-function d7_load_fresco() {
+function pp_load_fresco() {
 
 	wp_enqueue_script('fresco_js', get_bloginfo('template_directory') . '/includes/fresco/fresco.js', array('jquery'), '1', true);
 	wp_enqueue_script('fresco_js_inline', get_bloginfo('template_directory') . '/includes/fresco/frescoInline.js', array('jquery', 'fresco_js'), '1', true);
@@ -98,4 +98,4 @@ function d7_load_fresco() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'd7_load_fresco' );
+add_action( 'wp_enqueue_scripts', 'pp_load_fresco' );

@@ -5,8 +5,7 @@
  * should the CDN fail. The code is adapted from https://gist.github.com/wpsmith/4083811.
  * Then we load basic styles.
  */
-
-add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
+add_action( 'wp_enqueue_scripts', 'pp_enqueue_jquery' );
 
 /**
  * Enqueue jQuery from Google CDN with fallback to local WordPress
@@ -14,7 +13,7 @@ add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
  * should the CDN fail. The code is adapted from https://gist.github.com/wpsmith/4083811.
  * Then we load basic styles.
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @internal only called by `wp_enqueue_scripts` action
  *
@@ -35,7 +34,10 @@ add_action( 'wp_enqueue_scripts', 'd7_enqueue_jquery' );
  * @uses wp_register_script()   Registers javascripts for use with wp_enqueue_script() later.
  * @uses wp_enqueue_script()    Enqueues javascript.
  */
-function d7_enqueue_jquery() {
+function pp_enqueue_jquery() {
+
+	$script_location = 'js/main.js';
+
 	// Setup Google URI, default
 	$protocol = ( isset( $_SERVER['HTTPS'] ) && 'on' == $_SERVER['HTTPS'] ) ? 'https' : 'http';
 	// Get Latest Version
@@ -90,7 +92,20 @@ function d7_enqueue_jquery() {
 	wp_enqueue_script( 'jquery' );
 
 	// Now load basic site js
-	wp_enqueue_script('basic', get_bloginfo('template_directory').'/js/main.js', array('jquery'), '1.0');
+	wp_enqueue_script('basic', get_bloginfo('template_directory') . '/' . $script_location , array('jquery'), '1.0');
+
+	// Add some site information to a WP js object
+	$wp_object = array(
+		'templateUrl' => get_bloginfo('template_url'),
+		'stylesheetUrl' => get_bloginfo('stylesheet_url'),
+		'stylesheetDirectory' => get_bloginfo('stylesheet_directory'),
+		'siteName' => get_bloginfo('name'),
+		'description' => get_bloginfo('description'),
+		'currentTheme' => wp_get_theme(),
+		'url' => get_bloginfo('url'),
+	);
+	wp_localize_script('basic', 'ppWP', $wp_object);
+
 
 	// For comment reply form
 	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() ) {

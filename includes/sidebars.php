@@ -1,24 +1,25 @@
 <?php
 
-add_action('widgets_init', 'd7_register_sidebars');
+add_action('widgets_init', 'pp_register_sidebars');
 
 /**
  * Register WordPress Sitebars
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme_filters+hooks
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function d7_register_sidebars() {
+function pp_register_sidebars() {
 	register_sidebar(
 		array(
 			'id' => 'primary',
-			'name' => __( 'Primary Sidebar' ),
-			'description' => __( 'The following widgets will appear in the main sidebar div.' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div>',
-			'before_title' => '<h4>',
-			'after_title' => '</h4>'
+			'name' => __( 'Primary Sidebar', 'Admin - ' . get_bloginfo('name')  ),
+			'class' => 'foo',
+			'description' => __( 'The following widgets will appear in the main sidebar div.', 'Admin - ' . get_bloginfo('name') ),
+			'before_widget' => '<div id="%1$s" class="widget widget--%2$s">',
+			'after_widget' => '</div></div>',
+			'before_title' => '<h4 class="widget__title">',
+			'after_title' => '</h4><div class="widget__body">'
 		)
 	);
 }
@@ -27,11 +28,11 @@ function d7_register_sidebars() {
 /**
  * Add classes for the active sidebars
  *
- * @package d7
+ * @package pp
  * @subpackage boilerplate-theme
  *
  */
-function d7_sidebar_classes() {
+function pp_sidebar_classes() {
 
 	$sidebars = $GLOBALS['wp_registered_sidebars'];
 	$class = false;

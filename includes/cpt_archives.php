@@ -19,14 +19,14 @@
 	 *	));
 	 * </code>
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme_filters+hooks
 	 *
 	 * @internal only called by `getarchives_where` filter
 	 * @link http://codex.wordpress.org/Function_Reference/wp_get_archives Docs on wp_get_archives()
 	 *
 	 */
-	function d7_custom_post_type_archive_where($where,$args){
+	function pp_custom_post_type_archive_where($where,$args){
 
 		global $is_cpt_archive;
 
@@ -61,7 +61,7 @@
 
 	}
 
-	add_filter('getarchives_where', 'd7_custom_post_type_archive_where', 10 , 2);
+	add_filter('getarchives_where', 'pp_custom_post_type_archive_where', 10 , 2);
 
 
 	/**
@@ -72,7 +72,7 @@
 	 */
 
 	// Day
-	add_filter('day_link', function($daylink) {
+	add_filter('day_link', function($daylink = false) {
 
 		global $is_cpt_archive;
 
@@ -86,7 +86,7 @@
 	});
 
 	// Month
-	add_filter('month_link', function($monthlink, $year, $month) {
+	add_filter('month_link', function($monthlink = false, $year = false, $month = false) {
 
 		global $is_cpt_archive;
 
@@ -100,7 +100,7 @@
 	});
 
 	// Year
-	add_filter('year_link', function($yearlink, $year) {
+	add_filter('year_link', function($yearlink = false, $year = false) {
 
 		global $is_cpt_archive;
 

@@ -15,11 +15,11 @@ A few notes/philosophy about this:
 3. This theme defines no custom post types or custom taxonomies. It shouldn't contain any non-presentational logic at all. This should all be custom plugins. A site plugin should be set up for post types and taxonomies.
 
 ## Function reference
-Please refer to this project's function reference documentation: http://domain7.github.io/wp-theme_boilerplate
+Please refer to this project's function reference documentation: http://nathansh.github.io/penguinpress-theme
 
 ## Companion site plugin repo
 
-Since post types and core site functionality shouldn't be defined in the theme but rather a plugin, Domain7 has site plugin boilerplate repo as a companion to this one: https://github.com/domain7/wp-plugin_boilerplate.
+Since post types and core site functionality shouldn't be defined in the theme but rather a plugin, there is a plugin boilerplate repo as a companion to this one: https://github.com/nathansh/penguinpress-plugin.
 
 ## Tweaks & features
 
@@ -48,36 +48,6 @@ or
 		'post_type' => array('car', 'board')
 	));
 
-## Setting up wp-theme_boilerplate with Sassyplate, Gruntyplate, and the wp-plugin_boilerplate
-
-Follow these steps to set up a shiney new Wordpress theme, complete with sassyplate, gruntyplate, and the D7 plugin boilerplate.
-
-### WP Theme Boilerplate
-
-* Clone the wp theme boilerplate into the themes directory of your wp install ( https://github.com/domain7/wp-theme_boilerplate.git )
-* Rename wp-theme_boilerplate directory to the name of your new theme
-* In your new theme directory, delete .git directory and .gitignore file
-* Open the style.css file in the root of the theme, and customize with information for your new project.
-
-### Mix In some Sass
-
-* Clone sassyplate into the new theme ( https://github.com/domain7/sassyplate.git )
-* After cloning sassyplate into your theme, move the contents of /sassyplate into the theme (except the .git directory, .gitignore and readme.md files).
-* Replace the existing images directory with the one from sassyplate. Delete the sassyplate directory and what's left in it (git directory, .gitignore file, readme.md).
-
-### Activate Theme
-In wordpress admin, go to appearance / themes and activate your new wordpress theme.
-
-### Plug In some Awesome stuff
-
-The plugin boilerplate contains custom post types, taxonomies, and ACF field files. The purpose of containing these in a plugin, instead of in the theme, is to allow the separation of data from style.
-
-* Navigate to plugins folder of your WP install and clone in the wp plugin boilerplate ( https://github.com/domain7/wp-plugin_boilerplate.git )
-* Delete the .git directory and .gitignore file
-* Rename the wp-plugin_boilerplate directory to the same name as your theme.
-* Rename sitename.php file to the same name as your theme.
-* Open sitename.php file and replace all instances of `SITE NAME` and `sitename` with the same name as your theme.
-* In wordpress admin, go to plugins, and activate the plugin.
 
 ## Login screen
 

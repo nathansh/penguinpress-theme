@@ -3,14 +3,14 @@
 	/**
 	 * Gets all of the custom text fields
 	 *
-	 * @package d7
+	 * @package pp
 	 * @subpackage boilerplate-theme
 	 *
 	 * @param int $id 		Specific ID of post to look up fields of
 	 * @return array 		Array of custom fields
 	 *
 	 */
-	function d7_get_custom_fields($id = false) {
+	function pp_get_custom_fields($id = false) {
 
 		// Get the post ID
 		if ( !$id ) {
@@ -38,7 +38,8 @@
 			}
 
 			// Skip acf fields
-			if ( $acf && isset($acf[$key]) ) {
+			$split_nesteds = preg_split('(_[0-9]+_)', $key);
+			if ( $acf && isset($acf[$split_nesteds[0]]) ) {
 				continue;
 			}
 
@@ -47,16 +48,19 @@
 		}
 
 		// Loop through ACF fields too
-		foreach ( $acf as $key => $value ) {
 
-			// Exclude underscore prefixed keys
-			if ( substr($key, 0, 1) == '_' ) {
-				continue;
-			}
+		if ( $acf ) {
+			foreach ( $acf as $key => $value ) {
 
-			// Only doing text fields
-			if ( $value['type'] == 'text' ) {
-				$custom_fields[$value['label']][] = get_field($value['name']);
+				// Exclude underscore prefixed keys
+				if ( substr($key, 0, 1) == '_' ) {
+					continue;
+				}
+
+				// Only doing text fields
+				if ( $value['type'] == 'text' ) {
+					$custom_fields[$value['label']][] = get_field($value['name']);
+				}
 			}
 		}
 

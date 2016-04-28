@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
-	<section id="main">
+	<div class="l-main">
 
-		<section id="main_content">
+		<section class="l-content">
 
-			<?php if ( !is_single() && !is_page() ): ?>
-				<h2 class="page_title"><?php wp_title(false); ?></h2>
+			<h2 class="u-screen-reader">Main content</h2>
+
+			<?php if ( pp_is_listing() && !pp_is_home_listing() ): ?>
+				<h1 class="page-title"><?php wp_title(false); ?></h1>
 			<?php endif; ?>
 
 			<?php
@@ -13,7 +15,7 @@
 				if ( have_posts() ) :
 
 					// For listings, add a but of markup
-					if ( is_archive() || is_search() ) {
+					if ( pp_is_listing() ) {
 						echo '<div class="listing">';
 					}
 
@@ -30,7 +32,7 @@
 						 * full content post/page views.
 						 */
 
-						if ( is_archive() || is_search() ) {
+						if ( pp_is_listing() ) {
 							get_template_part('partials/listing', get_post_type());
 						} else {
 							get_template_part('partials/content', get_post_type());
@@ -39,7 +41,7 @@
 					endwhile;
 
 					// For listings, add a but of markup
-					if ( is_archive() || is_search() ) {
+					if ( pp_is_listing() ) {
 						echo '</div>';
 					}
 
@@ -54,10 +56,10 @@
 				endif;
 			?>
 
-		</section><!--  #main_content-->
+		</section><!--  .l-content-->
 
 		<?php get_sidebar(get_post_type()); ?>
 
-	</section><!--  #main -->
+	</div><!--  .l-main -->
 
 <?php get_footer(); ?>
