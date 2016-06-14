@@ -31,7 +31,7 @@
 			}
 
 			// Preserve any BEM classes
-			if ( strstr($class, "--") || strstr($class, "__") ) {
+			if ( strstr($class, "--") || strstr($class, "__") || strstr($class, "is-") || strstr($class, "has-") || strstr($class, "js-") ) {
 				$classes[] = $class;
 			}
 
@@ -51,6 +51,7 @@
 
 		// Add BEM modifier for items
 		$classes[] = $block . '__item--' . $title;
+		$classes[] = $block . '__item--' . $item->ID;
 
 		return $classes;
 
