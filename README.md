@@ -79,3 +79,17 @@ A function is added to `wp_nav_menu_objects` providing a `sub_menu` argument to 
 		'/images/logo.png',
 		'/logo.png'
 	);
+
+### Admin favicon
+`includes/admin_favicon.php` will look in various locations for a favicon, and adds the favicon to the login and admin screens if found. Possible favicon locations in order:
+
+	$possible_favicons = array(
+		'/images/favicons/favicon.ico',
+		'/images/favicons/favicon.png',
+		'/images/favicon.ico',
+		'/images/favicon.png',
+		'/favicons/favicon.ico',
+		'/favicons/favicon.png',
+		'/favicon.ico',
+		'/favicon.png'
+	);
