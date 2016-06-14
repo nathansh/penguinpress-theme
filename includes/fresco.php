@@ -69,16 +69,17 @@ add_filter( 'post_gallery', 'pp_gallery_shortcode', 10, 4 );
  */
 function pp_add_fresco_class($content) {
 
-   global $post;
+	global $post;
 
-   // Do some regex to add a class
-   $pattern ="/<img(.*?)class=\"(.*?)\"(.*?)>/i";
-   $replacement = '<img$1class="$2 fresco-image"$3>';
-   $content = preg_replace($pattern, $replacement, $content);
+	// Do some regex to add a class
+	$pattern ="/<img(.*?)class=\"(.*?)\"(.*?)>/i";
+	$replacement = '<img$1class="$2 fresco-image"$3>';
+	$content = preg_replace($pattern, $replacement, $content);
 
-   return $content;
+	return $content;
 
 }
+
 add_filter('the_content', 'pp_add_fresco_class');
 
 
@@ -89,6 +90,7 @@ add_filter('the_content', 'pp_add_fresco_class');
  * @subpackage boilerplate-theme_filters+hooks
  *
  * @internal only called by `wp_enqueue_scripts` action
+ *
  */
 function pp_load_fresco() {
 

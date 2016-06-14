@@ -26,13 +26,13 @@ add_action( 'wp_enqueue_scripts', 'pp_enqueue_jquery' );
  * @link http://codex.wordpress.org/Function_Reference/set_transient
  * @link http://codex.wordpress.org/Function_Reference/get_transient
  *
- * @uses get_transient()        Get the value of a transient.
- * @uses set_transient()        Set/update the value of a transient.
- * @uses is_wp_error()          Check whether the passed variable is a WordPress Error.
- * @uses get_bloginfo()         returns information about your site.
+ * @uses get_transient()		  Get the value of a transient.
+ * @uses set_transient()		  Set/update the value of a transient.
+ * @uses is_wp_error()			 Check whether the passed variable is a WordPress Error.
+ * @uses get_bloginfo()			returns information about your site.
  * @uses wp_deregister_script() Deregisters javascripts for use with wp_enqueue_script() later.
- * @uses wp_register_script()   Registers javascripts for use with wp_enqueue_script() later.
- * @uses wp_enqueue_script()    Enqueues javascript.
+ * @uses wp_register_script()	Registers javascripts for use with wp_enqueue_script() later.
+ * @uses wp_enqueue_script()	 Enqueues javascript.
  */
 function pp_enqueue_jquery() {
 
@@ -45,7 +45,7 @@ function pp_enqueue_jquery() {
 	$url = $protocol . '://code.jquery.com/jquery-1.11.1.min.js';
 
 	// Get Specific Version
-	//$url      = $protocol . '://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js';
+	//$url		= $protocol . '://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js';
 
 	// Setup WordPress URI
 	$wpurl =  get_bloginfo('template_directory') . '/js/src/vendor/jquery-2.0.0.min.js';

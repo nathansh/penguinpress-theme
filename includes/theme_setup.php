@@ -53,7 +53,7 @@ function pp_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
  *
  */
 function pp_enqueue_styles() {
-    wp_enqueue_style('theme-stylesheet',  get_bloginfo( 'stylesheet_url' ) );
+	 wp_enqueue_style('theme-stylesheet',  get_bloginfo( 'stylesheet_url' ) );
 }
 add_action( 'wp_enqueue_scripts', 'pp_enqueue_styles', 15 );
 

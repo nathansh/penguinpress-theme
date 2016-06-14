@@ -89,8 +89,8 @@ add_filter('login_headertitle', 'pp_custom_login_title');
 // Uncomment the following to use custom CSS & JS on the login page
 /*
 function pp_custom_login_stylesheet() {
-    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/stylesheets/css/login-page.css' );
-    wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/js/src/login-page.js' );
+	 wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/stylesheets/css/login-page.css' );
+	 wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/js/src/login-page.js' );
 }
 add_action( 'login_enqueue_scripts', 'pp_custom_login_stylesheet' );
 */
