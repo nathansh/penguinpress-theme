@@ -85,5 +85,10 @@ function pp_body_classes($classes, $class='') {
 		$classes[] = pp_sidebar_classes();
 	}
 
+	// Class for listing page
+	if ( pp_is_listing() && !is_home() ) {
+		$classes[] = 'is-listing-page';
+	}
+
 	return $classes;// return the $classes array
 }
