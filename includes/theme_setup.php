@@ -26,6 +26,8 @@ function pp_theme_setup() {
 
 	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption')); 	// http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
 
+	// Add support for excerpts
+	add_post_type_support( 'page', 'excerpt' );
 
 }
 
