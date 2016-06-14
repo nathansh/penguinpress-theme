@@ -15,5 +15,3 @@
 	<?php edit_post_link('Edit'); ?>
 
 </article><!-- #post-## -->
-
-<?php comments_template(); ?>
