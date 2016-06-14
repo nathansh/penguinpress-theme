@@ -1,7 +1,7 @@
 <?php
 
-add_action('after_setup_theme', 'pp_theme_setup');
-add_filter('stylesheet_uri', 'pp_stylesheet_uri', 10, 2);
+add_action( 'after_setup_theme', 'pp_theme_setup' );
+add_filter( 'stylesheet_uri', 'pp_stylesheet_uri', 10, 2 );
 
 /**
  * Basic theme setup stuff like theme support
@@ -24,7 +24,7 @@ function pp_theme_setup() {
 	// Let WordPress manage document title
 	add_theme_support( 'title-tag' );
 
-	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption')); 	// http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption') ); 	// http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
 
 	// Add support for excerpts
 	add_post_type_support( 'page', 'excerpt' );
@@ -40,7 +40,7 @@ function pp_theme_setup() {
  * @link https://github.com/nathansh/sassyplate Sassyplate SASS boilerplate repo
  *
  */
-function pp_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
+function pp_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ){
 	return $stylesheet_dir_uri . '/stylesheets/css/screen.css';
 }
 
@@ -55,18 +55,18 @@ function pp_stylesheet_uri($stylesheet_uri, $stylesheet_dir_uri){
  *
  */
 function pp_enqueue_styles() {
-	 wp_enqueue_style('theme-stylesheet',  get_bloginfo( 'stylesheet_url' ) );
+	 wp_enqueue_style( 'theme-stylesheet',  get_bloginfo( 'stylesheet_url' ) );
 }
 add_action( 'wp_enqueue_scripts', 'pp_enqueue_styles', 15 );
 
 // Clean up <head> and improve security.
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'feed_links', 2 );
-remove_action('wp_head', 'start_post_rel_link', 10, 0);
-remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
-remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'feed_links', 2  );
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );

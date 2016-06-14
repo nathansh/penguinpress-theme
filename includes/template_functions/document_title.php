@@ -14,9 +14,9 @@
 	function pp_get_document_title() {
 
 		if ( is_home() ) {
-			return get_bloginfo('name');
+			return get_bloginfo( 'name' );
 		} else {
-			return wp_title('-', false, 'right') . get_bloginfo('name');
+			return wp_title( '-', false, 'right' ) . get_bloginfo( 'name' );
 		}
 
 
@@ -37,5 +37,7 @@
 	 *
 	 */
 	function pp_document_title() {
+
 		echo pp_get_document_title();
+
 	}

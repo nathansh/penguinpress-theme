@@ -26,18 +26,18 @@ $is_cpt_archive = false;
  * @link http://codex.wordpress.org/Function_Reference/wp_get_archives Docs on wp_get_archives()
  *
  */
-function pp_custom_post_type_archive_where($where,$args){
+function pp_custom_post_type_archive_where( $where,$args ){
 
 	global $is_cpt_archive;
 
-	if ( isset($args['post_type']) ) {
+	if ( isset( $args['post_type'] ) ) {
 
 		$is_cpt_archive = $args['post_type'];
 
 		// If post_type is an array do an IN query, otherwise normal WHERE
-		if ( gettype($args['post_type']) == 'array' ) {
+		if ( gettype( $args['post_type'] ) == 'array' ) {
 
-			$types = implode('\',\'', $args['post_type']);
+			$types = implode( '\',\'', $args['post_type'] );
 			 $where = "WHERE post_type IN ('$types') AND post_status = 'publish'";
 
 		} else {
@@ -61,7 +61,7 @@ function pp_custom_post_type_archive_where($where,$args){
 
 }
 
-add_filter('getarchives_where', 'pp_custom_post_type_archive_where', 10 , 2);
+add_filter( 'getarchives_where', 'pp_custom_post_type_archive_where', 10 , 2 );
 
 
 /**
@@ -72,43 +72,43 @@ add_filter('getarchives_where', 'pp_custom_post_type_archive_where', 10 , 2);
  */
 
 // Day
-add_filter('day_link', function($daylink = false) {
+add_filter( 'day_link', function( $daylink = false ) {
 
 	global $is_cpt_archive;
 
 	if ( $is_cpt_archive ) {
-		$daylink = substr($daylink, 0, -1);
+		$daylink = substr( $daylink, 0, -1 );
 		$daylink .= '?post_type=' . $is_cpt_archive;
 	}
 
 	return $daylink;
 
-});
+} );
 
 // Month
-add_filter('month_link', function($monthlink = false, $year = false, $month = false) {
+add_filter( 'month_link', function( $monthlink = false, $year = false, $month = false ) {
 
 	global $is_cpt_archive;
 
 	if ( $is_cpt_archive ) {
-		$monthlink = substr($monthlink, 0, -1);
+		$monthlink = substr( $monthlink, 0, -1 );
 		$monthlink .= '?post_type=' . $is_cpt_archive;
 	}
 
 	return $monthlink;
 
-});
+} );
 
 // Year
-add_filter('year_link', function($yearlink = false, $year = false) {
+add_filter( 'year_link', function( $yearlink = false, $year = false ) {
 
 	global $is_cpt_archive;
 
 	if ( $is_cpt_archive ) {
-		$yearlink = substr($yearlink, 0, -1);
+		$yearlink = substr( $yearlink, 0, -1 );
 		$yearlink .= '?post_type=' . $is_cpt_archive;
 	}
 
 	return $yearlink;
 
-});
+} );

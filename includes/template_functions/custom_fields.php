@@ -10,7 +10,7 @@
 	 * @return array 		Array of custom fields
 	 *
 	 */
-	function pp_get_custom_fields($id = false) {
+	function pp_get_custom_fields( $id = false ) {
 
 		// Get the post ID
 		if ( !$id ) {
@@ -18,12 +18,12 @@
 		}
 
 		// Get custom fields
-		$custom = get_post_custom($id);
+		$custom = get_post_custom( $id );
 
 		// Grab ACF fields
 		$acf = false;
-		if ( function_exists('get_field_objects') ) {
-			$acf = get_field_objects($id);
+		if ( function_exists( 'get_field_objects' ) ) {
+			$acf = get_field_objects( $id );
 		}
 
 		// We're going to filter a bit and store the result here
@@ -33,13 +33,13 @@
 		foreach ( $custom as $key => $value ) {
 
 			// Exclude underscore prefixed keys
-			if ( substr($key, 0, 1) == '_' ) {
+			if ( substr( $key, 0, 1 ) == '_' ) {
 				continue;
 			}
 
 			// Skip acf fields
-			$split_nesteds = preg_split('(_[0-9]+_)', $key);
-			if ( $acf && isset($acf[$split_nesteds[0]]) ) {
+			$split_nesteds = preg_split( '(_[0-9]+_)', $key );
+			if ( $acf && isset( $acf[$split_nesteds[0]] ) ) {
 				continue;
 			}
 
@@ -53,13 +53,13 @@
 			foreach ( $acf as $key => $value ) {
 
 				// Exclude underscore prefixed keys
-				if ( substr($key, 0, 1) == '_' ) {
+				if ( substr( $key, 0, 1 ) == '_' ) {
 					continue;
 				}
 
 				// Only doing text fields
 				if ( $value['type'] == 'text' ) {
-					$custom_fields[$value['label']][] = get_field($value['name']);
+					$custom_fields[$value['label']][] = get_field( $value['name'] );
 				}
 			}
 		}

@@ -21,13 +21,13 @@
 	 * @return string 						HTML output
 	 *
 	 */
-	function pp_get_acf_image($image, $size = 'thumbnail', $classes = '') {
+	function pp_get_acf_image( $image, $size = 'thumbnail', $classes = '' ) {
 
 		// Bail early if there's no image
-		if ( !is_array($image) ) {
+		if ( !is_array( $image ) ) {
 
 			// Maybe it's a string with a field name?
-			$field = get_field($image);
+			$field = get_field( $image );
 			if ( $field ) {
 				$image = $field;
 			} else {
@@ -38,12 +38,12 @@
 		$img = '<img src="' . $image['sizes'][$size] . '"';
 
 		// Alt
-		if ( !empty($image['alt']) ) {
+		if ( !empty( $image['alt'] ) ) {
 			$img .= ' alt="' . $image['alt'] . '"';
 		}
 
 		// Title
-		if ( !empty($image['title']) ) {
+		if ( !empty( $image['title'] ) ) {
 			$img .= ' title="' . $image['title'] . '"';
 		}
 
@@ -78,9 +78,9 @@
 	 * @link http://www.advancedcustomfields.com/resources/image/
 	 *
 	 */
-	function pp_acf_image($image, $size = 'thumbnail', $classes = '') {
+	function pp_acf_image( $image, $size = 'thumbnail', $classes = '' ) {
 
-		$image = pp_get_acf_image($image, $size, $classes);
+		$image = pp_get_acf_image( $image, $size, $classes );
 		if ( $image ) {
 			echo $image;
 		}
@@ -116,14 +116,14 @@
 	 *
 	 * @return string|bool 		Image URL or false
 	 */
-	function pp_get_post_thumbnail_url($size='', $id = false) {
+	function pp_get_post_thumbnail_url( $size='', $id = false ) {
 
 		if ( !$id ) {
 			$id = get_the_ID();
 		}
 
-		if ( has_post_thumbnail($id) ) {
-			$url = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
+		if ( has_post_thumbnail( $id ) ) {
+			$url = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), $size );
 			return $url[0];
 		} else {
 			return false;

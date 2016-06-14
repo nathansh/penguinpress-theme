@@ -17,18 +17,18 @@ function pp_gallery_shortcode( $output = '', $atts, $content = false, $tag = fal
 	$size = isset($atts['size']) ? $atts['size'] : 'thumbnail';
 
 	// Get column count. 3 is the default
-	$columns = isset($atts['columns']) ? $atts['columns'] : 3;
+	$columns = isset( $atts['columns'] ) ? $atts['columns'] : 3;
 
 	$output = '<div class="gallery galery--size-' . $size . ' gallery--columns-' .$columns . '">';
 
 		// Load each item
-		$ids = explode(",", $atts['include']);
+		$ids = explode( ",", $atts['include'] );
 		foreach ( $ids as $id ) {
 
 
-			$image_large = wp_get_attachment_image_src($id, 'large');
+			$image_large = wp_get_attachment_image_src( $id, 'large' );
 
-			$image = wp_get_attachment_image($id, $size);
+			$image = wp_get_attachment_image( $id, $size );
 			$output .= '<figure class="gallery-item galery-item--size-' . $size . ' galery-item--columns-' . $columns . '">';
 
 			// Unless link is set to none, link it!
@@ -67,20 +67,20 @@ add_filter( 'post_gallery', 'pp_gallery_shortcode', 10, 4 );
  * @todo figure out how to write regex to match the link around the image and add a fresco class to that
  *
  */
-function pp_add_fresco_class($content) {
+function pp_add_fresco_class( $content ) {
 
 	global $post;
 
 	// Do some regex to add a class
 	$pattern ="/<img(.*?)class=\"(.*?)\"(.*?)>/i";
 	$replacement = '<img$1class="$2 fresco-image"$3>';
-	$content = preg_replace($pattern, $replacement, $content);
+	$content = preg_replace( $pattern, $replacement, $content );
 
 	return $content;
 
 }
 
-add_filter('the_content', 'pp_add_fresco_class');
+add_filter( 'the_content', 'pp_add_fresco_class' );
 
 
 /**
@@ -94,9 +94,9 @@ add_filter('the_content', 'pp_add_fresco_class');
  */
 function pp_load_fresco() {
 
-	wp_enqueue_script('fresco_js', get_bloginfo('template_directory') . '/includes/fresco/fresco.js', array('jquery'), '1', true);
-	wp_enqueue_script('fresco_js_inline', get_bloginfo('template_directory') . '/includes/fresco/frescoInline.js', array('jquery', 'fresco_js'), '1', true);
-	wp_enqueue_style('fresco_css', get_bloginfo('template_directory') . '/includes/fresco/fresco.css');
+	wp_enqueue_script( 'fresco_js', get_bloginfo('template_directory') . '/includes/fresco/fresco.js', array('jquery'), '1', true );
+	wp_enqueue_script( 'fresco_js_inline', get_bloginfo('template_directory') . '/includes/fresco/frescoInline.js', array('jquery', 'fresco_js'), '1', true );
+	wp_enqueue_style( 'fresco_css', get_bloginfo('template_directory') . '/includes/fresco/fresco.css' );
 
 }
 

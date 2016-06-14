@@ -9,10 +9,10 @@
 	 * @internal called by `post_class` filter
 	 *
 	 */
-	function pp_add_post_classes($classes) {
+	function pp_add_post_classes( $classes ) {
 
 		// Full post or listing item
-		if (is_single() || is_page()) {
+		if ( is_single() || is_page() ) {
 			$classes[] = 'post';
 			$classes[] = 'post--full';
 		} else {
@@ -20,7 +20,7 @@
 		}
 
 		// Has post thumbnail or other acf images, add classes for those
-		$classes = pp_post_image_classes($classes);
+		$classes = pp_post_image_classes( $classes );
 
 		// Has comments or not
 		if ( comments_open() && get_comments_number() ) {
@@ -38,4 +38,4 @@
 
 	}
 
-	add_filter('post_class', 'pp_add_post_classes');
+	add_filter( 'post_class', 'pp_add_post_classes' );

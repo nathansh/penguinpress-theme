@@ -1,6 +1,6 @@
 <?php
 
-add_action('wp_head', 'pp_share_meta');
+add_action( 'wp_head', 'pp_share_meta' );
 
 /**
  * Print open graph and twitter card meta tags
@@ -28,11 +28,11 @@ function pp_share_meta() {
 
 	// On the homepage use the site name
 	if ( is_home() ) {
-		$meta['title'] = trim(get_bloginfo('name'));
+		$meta['title'] = trim( get_bloginfo( 'name' ) );
 	} else {
 
 		// Otherwise, use the document title
-		$meta['title'] = trim(pp_get_document_title());
+		$meta['title'] = trim( pp_get_document_title() );
 
 	}
 
@@ -41,14 +41,14 @@ function pp_share_meta() {
 	 * Site name
 	 */
 
-	$meta['site_name'] = get_bloginfo('name');
+	$meta['site_name'] = get_bloginfo( 'name' );
 
 
 	/**
 	 * URL
 	 */
 
-	$meta['url'] = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+	$meta['url'] = empty( $_SERVER['HTTPS'] ) ? 'http' : 'https';
 	$meta['url'] .= '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 
@@ -62,17 +62,17 @@ function pp_share_meta() {
 	// For singles and pages, use the post body
 	if ( is_single() || is_page() ) {
 		$meta['description'] = $post->post_content;
-		$meta['description'] = preg_replace('/\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $meta['description']);
-		$meta['description'] = strip_tags(trim(substr($meta['description'], 0, 1500)));
+		$meta['description'] = preg_replace( '/\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $meta['description'] );
+		$meta['description'] = strip_tags( trim( substr( $meta['description'], 0, 1500 ) ) );
 	} else {
 
 		// If there's no post body use the site description
-		$meta['description'] = get_bloginfo('description');
+		$meta['description'] = get_bloginfo( 'description' );
 
 	}
 
 	// Trim trim
-	$meta['description'] = trim($meta['description']);
+	$meta['description'] = trim( $meta['description'] );
 
 
 	/**
@@ -88,9 +88,9 @@ function pp_share_meta() {
 
 	// If there's a post thumbnail, use it
 	if ( has_post_thumbnail() && !is_archive() ) {
-		$meta['image'] = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
+		$meta['image'] = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 		$meta['image'] = $meta['image'][0];
-	} elseif($default_image) {
+	} elseif( $default_image ) {
 
 		// Otherwise, use the default
 		$meta['image'] = $default_image;
@@ -110,10 +110,10 @@ function pp_share_meta() {
 	 * Print open graph tags
 	 */
 
-	$open_graph_attributes = array('title', 'site_name', 'url', 'description', 'image');
+	$open_graph_attributes = array( 'title', 'site_name', 'url', 'description', 'image' );
 
 	foreach ( $meta as $tag => $value ) {
-		if ( $value && in_array($tag, $open_graph_attributes) ) {
+		if ( $value && in_array( $tag, $open_graph_attributes ) ) {
 			echo '<meta property="og:' . $tag . '" content="' . $value . '" />' . "\n";
 		}
 	}
@@ -123,12 +123,12 @@ function pp_share_meta() {
 	 * Print Twitter card stuff
 	 */
 
-	$twitter_card_attributes = array('title', 'description', 'image', 'url');
+	$twitter_card_attributes = array( 'title', 'description', 'image', 'url' );
 
 	echo '<meta name="twitter:card" content="summary" />'  . "\n";
 
 	foreach ( $meta as $tag => $value ) {
-		if ( $value && in_array($tag, $twitter_card_attributes) ) {
+		if ( $value && in_array( $tag, $twitter_card_attributes ) ) {
 			echo '<meta name="twitter:' . $tag . '" content="' . $value . '" />' . "\n";
 		}
 	}

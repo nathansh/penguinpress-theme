@@ -7,7 +7,7 @@
 			<h2 class="u-screen-reader">Main content</h2>
 
 			<?php if ( pp_is_listing() && !pp_is_home_listing() ): ?>
-				<h1 class="page-title"><?php wp_title(false); ?></h1>
+				<?php get_template_part( 'partials/page-title' ); ?>
 			<?php endif; ?>
 
 			<?php
@@ -33,9 +33,9 @@
 						 */
 
 						if ( pp_is_listing() ) {
-							get_template_part('partials/listing', get_post_type());
+							get_template_part( 'partials/listing', get_post_type() );
 						} else {
-							get_template_part('partials/content', get_post_type());
+							get_template_part( 'partials/content', get_post_type() );
 						}
 
 					endwhile;
@@ -46,19 +46,19 @@
 					}
 
 					// Pagination
-					get_template_part('partials/pagination', get_post_type());
+					get_template_part( 'partials/pagination', get_post_type() );
 
 				else :
 
 					// If no content, include the "No posts found" template.
-					get_template_part('partials/content', 'none');
+					get_template_part( 'partials/content', 'none' );
 
 				endif;
 			?>
 
 		</section><!--  .l-content-->
 
-		<?php get_sidebar(get_post_type()); ?>
+		<?php get_sidebar( get_post_type() ); ?>
 
 	</div><!--  .l-main -->
 

@@ -1,6 +1,6 @@
 <?php
 
-add_filter('body_class','pp_body_classes');
+add_filter( 'body_class','pp_body_classes' );
 
 /**
  * Expands the body classes added by WordPress. <br />
@@ -20,38 +20,38 @@ add_filter('body_class','pp_body_classes');
  * @internal Called by `body_class` filter
  *
  */
-function pp_body_classes($classes, $class='') {
+function pp_body_classes( $classes, $class='' ) {
 	global $wp_query;
 
-	if ( isset($wp_query->queried_object) ) {
+	if ( isset( $wp_query->queried_object ) ) {
 
 		// Post type
-		if ( isset($wp_query->queried_object->post_type) ) {
+		if ( isset( $wp_query->queried_object->post_type ) ) {
 			$classes[] = 'post_type-' . $wp_query->queried_object->post_type;
 		}
 
 		// Post name
-		if ( isset($wp_query->queried_object->post_name) ) {
+		if ( isset( $wp_query->queried_object->post_name ) ) {
 			$classes[] = 'post_name-' . $wp_query->queried_object->post_name;
 		}
 
 		// Taxonomy
-		if ( isset($wp_query->queried_object->taxonomy) ) {
+		if ( isset( $wp_query->queried_object->taxonomy ) ) {
 			$classes[] = 'taxonomy-' . $wp_query->queried_object->taxonomy;
 		}
 
 		// Taxonomy term
-		if ( isset($wp_query->queried_object->taxonomy) ) {
+		if ( isset( $wp_query->queried_object->taxonomy ) ) {
 			$classes[] = 'taxonomy_term-' . $wp_query->queried_object->slug;
 		}
 
 		// Taxonomy ID
-		if ( isset($wp_query->queried_object->cat_ID) ) {
+		if ( isset( $wp_query->queried_object->cat_ID ) ) {
 			$classes[] = 'taxonomy_id-' . $wp_query->queried_object->cat_ID;
 		}
 
 		// Taxonomy term ID
-		if ( isset($wp_query->queried_object->term_id) ) {
+		if ( isset( $wp_query->queried_object->term_id ) ) {
 			$classes[] = 'taxonomy_term_id-' . $wp_query->queried_object->term_id;
 		}
 
@@ -59,21 +59,21 @@ function pp_body_classes($classes, $class='') {
 
 	// Has post thumbnail or other acf images, add classes for those
 	if ( !pp_is_listing() ) {
-		$classes = pp_post_image_classes($classes);
+		$classes = pp_post_image_classes( $classes );
 	}
 
 	// Has comments or not
 	if ( is_single() ) {
 
 		if ( comments_open() && get_comments_number() ) {
-			$classes[] = "has-comments";
+			$classes[] = 'has-comments';
 		} else {
-			$classes[] = "no-comments";
+			$classes[] = 'no-comments';
 		}
 
 		// Comments open/closed
 		if ( comments_open() ) {
-			$classes[] = "can-comment";
+			$classes[] = 'can-comment';
 		}
 
 	} else {
@@ -81,7 +81,7 @@ function pp_body_classes($classes, $class='') {
 	}
 
 	// Classes for sidebars
-	if ( function_exists('pp_sidebar_classes') ) {
+	if ( function_exists( 'pp_sidebar_classes' ) ) {
 		$classes[] = pp_sidebar_classes();
 	}
 
@@ -90,5 +90,6 @@ function pp_body_classes($classes, $class='') {
 		$classes[] = 'is-listing-page';
 	}
 
-	return $classes;// return the $classes array
+	// return the $classes array
+	return $classes;
 }

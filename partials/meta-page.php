@@ -1,7 +1,7 @@
 <?php
 
 	// Custom fields
-	$custom_fields = pp_get_custom_fields($post->ID);
+	$custom_fields = pp_get_custom_fields( $post->ID );
 
 ?>
 

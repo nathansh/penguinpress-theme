@@ -33,8 +33,8 @@ function pp_custom_login_logo() {
 	if ( $logo ):
 
 		// Get the image dimensions
-		$logo_dimensions = getimagesize(get_template_directory() . $logo);
-		$logo_height = isset($logo_dimensions[1]) ? $logo_dimensions[1] : '92';
+		$logo_dimensions = getimagesize( get_template_directory() . $logo );
+		$logo_height = isset( $logo_dimensions[1] ) ? $logo_dimensions[1] : '92';
 		$logo_height = $logo_height . 'px';
 
 	?>
@@ -65,10 +65,10 @@ add_filter( 'login_head', 'pp_custom_login_logo' );
  *
  */
 function pp_custom_login_url(){
-	return get_bloginfo('url');
+	return get_bloginfo( 'url' );
 }
 
-add_filter('login_headerurl', 'pp_custom_login_url');
+add_filter( 'login_headerurl', 'pp_custom_login_url' );
 
 
 /**
@@ -80,10 +80,10 @@ add_filter('login_headerurl', 'pp_custom_login_url');
  *
  */
 function pp_custom_login_title() {
-	return get_bloginfo('name');
+	return get_bloginfo( 'name' );
 }
 
-add_filter('login_headertitle', 'pp_custom_login_title');
+add_filter( 'login_headertitle', 'pp_custom_login_title' );
 
 
 // Uncomment the following to use custom CSS & JS on the login page

@@ -1,13 +1,13 @@
 <?php
 
 	// Post category
-	$category = get_the_category($post->ID);
+	$category = get_the_category( $post->ID );
 
 	// Tags
-	$tags = wp_get_post_tags($post->ID);
+	$tags = wp_get_post_tags( $post->ID );
 
 	// Custom fields
-	$custom_fields = pp_get_custom_fields($post->ID);
+	$custom_fields = pp_get_custom_fields( $post->ID );
 
 ?>
 
@@ -19,14 +19,14 @@
 	<!-- Category -->
 	<?php if ( $category ): ?>
 		<li class="post-meta__item post-meta__item--category">
-			<span class="post-meta__key"><?php _e('Category', get_bloginfo('name') ); ?>: </span>
-			<span class="post-meta__value"><?php the_category(', ') ?></span>
+			<span class="post-meta__key"><?php _e( 'Category', get_bloginfo( 'name' ) ); ?>: </span>
+			<span class="post-meta__value"><?php the_category( ', ' ) ?></span>
 		</li>
 	<?php endif; ?>
 
 	<!-- Tags -->
 	<?php if ( $tags ): ?>
-		<li class="post-meta__item post-meta__item--tags"><?php the_tags('',', ',''); ?></li>
+		<li class="post-meta__item post-meta__item--tags"><?php the_tags( '',', ','' ); ?></li>
 	<?php endif; ?>
 
 	<!-- Custom fields -->

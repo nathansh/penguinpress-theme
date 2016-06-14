@@ -19,12 +19,12 @@ V important, create your fun site name at http://patorjk.com/software/taag
 
 <!--[if IE 9]> <html class="no-js ie9"> <![endif]-->
 
-<!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo('language') ?>"><!--<![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="<?php bloginfo( 'language' ) ?>"><!--<![endif]-->
 <head>
 
-	<meta name="description" content="<?php bloginfo('description') ?>">
+	<meta name="description" content="<?php bloginfo( 'description' ) ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
+	<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ) ?>; charset=<?php bloginfo( 'charset' ) ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<!-- This bit of the uggliest code you've ever seen deals an icon font loading issue in IE8 -->
@@ -33,7 +33,7 @@ V important, create your fun site name at http://patorjk.com/software/taag
 		<script>window.attachEvent&&!window.addEventListener&&window.attachEvent("onload",function(){var a=document.documentElement,b=a.className;a.className=b+" ie-force-pseudo-refresh",setTimeout(function(){a.className=b},10)});</script>
 	<![endif]-->
 
-	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico?ver=2">
+	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/images/favicon.ico?ver=2">
 
 	<?php wp_head(); ?>
 
@@ -41,7 +41,7 @@ V important, create your fun site name at http://patorjk.com/software/taag
 <body <?php body_class(); ?>>
 
 	<header class="masthead">
-		<h1 class="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+		<h1 class="site-name"><a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<?php
 
 			/**

@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', 'pp_register_menus');
+add_action( 'init', 'pp_register_menus' );
 
 /**
  * Core menu registration.
@@ -11,7 +11,7 @@ add_action('init', 'pp_register_menus');
  * @link https://codex.wordpress.org/Function_Reference/register_nav_menus
  */
 function pp_register_menus() {
-	register_nav_menus(array(
-		'primary' => __('Primary Nav', 'Admin - ' . get_bloginfo('name')  )
-	));
+	register_nav_menus( array(
+		'primary' => __( 'Primary Nav', 'Admin - ' . wp_get_theme()->get('TextDomain')  )
+	) );
 }
