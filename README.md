@@ -27,6 +27,9 @@ No CSS or JavaScript is included in this boilerplate. For the sake of maintenanc
 
 Since post types and core site functionality shouldn't be defined in the theme but rather a plugin, there is a plugin boilerplate repo as a companion to this one: https://github.com/nathansh/penguinpress-plugin.
 
+## Utilities
+Utility functions have been moved to [a separate utilities plugin](https://github.com/nathansh/penguinpress-utils) for ubiquity between plugins and themes.
+
 ## Tweaks & features
 
 ### Open Graph and Twitter card tags

@@ -23,4 +23,3 @@ include_once 'includes/share_meta.php'; // sharing meta tags
 // include_once 'includes/sidebars.php'; // core sidebar registration
 include_once 'includes/sub_menu.php'; // sub menu hook
 include_once 'includes/theme_setup.php'; // stylesheet_uri, after_setup_theme, cleanup head
-include_once 'includes/utility.php';
