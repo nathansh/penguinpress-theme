@@ -47,52 +47,60 @@ linked to will also be filtered by that post type.
 
 Example:
 
-	echo wp_get_archives(array(
-		'post_type' => 'car'
-	));
+```php
+echo wp_get_archives(array(
+	'post_type' => 'car'
+));
+```
 
 or
 
-	echo wp_get_archives(array(
-		'post_type' => array('car', 'board')
-	));
-
+```php
+echo wp_get_archives(array(
+	'post_type' => array('car', 'board')
+));
+```
 
 ### `wp_nav_menu` / `sub_menu`
 A function is added to `wp_nav_menu_objects` providing a `sub_menu` argument to `wp_nav_menu`. Setting this to `true` creates a contextual sub navigation. For example:
 
-	wp_nav_menu( array(
-		'theme_location' => 'primary',
-		'container' => 'nav',
-		'container_class' => 'menu subnav',
-		'depth' => 2,
-		'sub_menu' => true
-		)
-	);
-
+```php
+wp_nav_menu( array(
+	'theme_location' => 'primary',
+	'container' => 'nav',
+	'container_class' => 'menu subnav',
+	'depth' => 2,
+	'sub_menu' => true
+	)
+);
+```
 
 ### Login screen
 
 `includes/login_page.php` has been added to customize the login. For following locations will be checked for a logo to use on the login screen, in this order:
 
-	$possible_logos = array(
-		'/images/logo-login.png',
-		'/images/sprites/common-1x/logo.png',
-		'/images/sprites/common-compatibility/logo.png',
-		'/images/logo.png',
-		'/logo.png'
-	);
+```php
+$possible_logos = array(
+	'/images/logo-login.png',
+	'/images/sprites/common-1x/logo.png',
+	'/images/sprites/common-compatibility/logo.png',
+	'/images/logo.png',
+	'/logo.png'
+);
+```
 
 ### Admin favicon
 `includes/admin_favicon.php` will look in various locations for a favicon, and adds the favicon to the login and admin screens if found. Possible favicon locations in order:
 
-	$possible_favicons = array(
-		'/images/favicons/favicon.ico',
-		'/images/favicons/favicon.png',
-		'/images/favicon.ico',
-		'/images/favicon.png',
-		'/favicons/favicon.ico',
-		'/favicons/favicon.png',
-		'/favicon.ico',
-		'/favicon.png'
-	);
+```php
+$possible_favicons = array(
+	'/images/favicons/favicon.ico',
+	'/images/favicons/favicon.png',
+	'/images/favicon.ico',
+	'/images/favicon.png',
+	'/favicons/favicon.ico',
+	'/favicons/favicon.png',
+	'/favicon.ico',
+	'/favicon.png'
+);
+```
